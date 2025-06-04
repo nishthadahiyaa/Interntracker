@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Training Programs</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    :root {
+      --bg-color: #2B2B24;
+      --sidebar-color: #3E4035;
+      --accent-color: #697565;
+      --card-color: #ECDFCC;
+      --text-color: #ffffff;
+      --text-muted: #A1A196;
+      --chart-green: #6B745F;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    .card {
+      background-color: var(--card-color);
+      color: var(--sidebar-color);
+    }
+
+    input, select, textarea {
+      background-color: #f3f3f3;
+      color: #000;
+    }
+
+    button {
+      background-color: var(--accent-color);
+      color: var(--card-color);
+    }
+
+    .main-title {
+      font-size: 3.5rem;
+      font-weight: 200;
+      color: var(--text-color);
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body class="p-6">
+  <h1 class="main-title">TRAINING PROGRAMS</h1>
+
+  <!-- Upcoming Trainings -->
+  <div class="mb-8">
+    <h2 class="text-2xl font-semibold mb-4">Upcoming Trainings</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="card p-4 rounded shadow">
+        <h3 class="text-xl font-semibold">Embedded Systems Workshop</h3>
+        <p class="text-sm text-gray-700">Date: 2025-06-10</p>
+        <p class="text-sm text-gray-700">Dept: Embedded</p>
+      </div>
+      <div class="card p-4 rounded shadow">
+        <h3 class="text-xl font-semibold">Radar Tech Seminar</h3>
+        <p class="text-sm text-gray-700">Date: 2025-06-12</p>
+        <p class="text-sm text-gray-700">Dept: Radar</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Past Trainings -->
+  <div class="mb-8">
+    <h2 class="text-2xl font-semibold mb-4">Past Trainings</h2>
+    <table class="min-w-full bg-white rounded shadow text-sm text-left">
+      <thead class="bg-gray-200 text-gray-800">
+        <tr>
+          <th class="px-4 py-2">Title</th>
+          <th class="px-4 py-2">Date</th>
+          <th class="px-4 py-2">Department</th>
+          <th class="px-4 py-2">Attendees</th>
+        </tr>
+      </thead>
+      <tbody class="text-gray-900">
+        <tr class="border-b">
+          <td class="px-4 py-2">Python Basics</td>
+          <td class="px-4 py-2">2025-05-28</td>
+          <td class="px-4 py-2">IS</td>
+          <td class="px-4 py-2">24</td>
+        </tr>
+        <tr class="border-b">
+          <td class="px-4 py-2">Antennas Deep Dive</td>
+          <td class="px-4 py-2">2025-05-20</td>
+          <td class="px-4 py-2">Antenna</td>
+          <td class="px-4 py-2">15</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Register New Training (Admin Only) -->
+  <div class="mb-8">
+    <h2 class="text-2xl font-semibold mb-4">Register New Training (Admin Only)</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <input type="text" placeholder="Training Title" class="p-2 rounded" />
+      <input type="date" class="p-2 rounded" />
+      <select class="p-2 rounded">
+        <option>Choose Department</option>
+        <option>IS</option>
+        <option>Antenna</option>
+        <option>Radar</option>
+        <option>Embedded</option>
+        <option>Mechanical</option>
+      </select>
+      <textarea placeholder="Description" class="p-2 rounded col-span-2"></textarea>
+      <button class="px-4 py-2 rounded">Submit</button>
+    </div>
+  </div>
+
+  <!-- Department-wise Training Participation Chart -->
+  <div class="mb-8">
+    <h2 class="text-2xl font-semibold mb-4">Department-wise Training Participation</h2>
+    <div class="bg-white p-4 rounded shadow" style="max-width: 600px; height: 300px;">
+      <canvas id="deptChart" height="250"></canvas>
+    </div>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('deptChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['IS', 'Antenna', 'Radar', 'Embedded', 'Mechanical'],
+        datasets: [{
+          label: 'Participants',
+          data: [24, 15, 18, 20, 12],
+          backgroundColor: 'rgba(107, 116, 95, 0.8)',
+          borderRadius: 6
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+        },
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: 'Department',
+              color: '#fff'
+            },
+            ticks: { color: '#fff' }
+          },
+          y: {
+            title: {
+              display: true,
+              text: 'Number of Participants',
+              color: '#fff'
+            },
+            ticks: { color: '#fff' }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+:root {
+    --bg-color: #1E201E;
+    --sidebar-color: #3C3D37;
+    --accent-color: #697565;
+    --card-color: #ECDFCC;
+    --text-color: #ffffff;
+    --dark-text: #000000;
+    --shadow: rgba(0, 0, 0, 0.3);
+  }
+  
+  body {
+
+    /* Main heading style */
+.main-title {
+    font-size: 3.5rem;         /* Increased size */
+    font-weight: 200;          /* Extra bold */
+    color: var(--text-color);  /* White or defined in your theme */
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Subheading style */
+  .quote-subhead {
+    font-size: 2.0rem;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.6); /* Slightly translucent */
+    margin-bottom: 2rem;
+  }
+  
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+  }
+  
+  .topbar {
+    position: fixed;
+    top: 0;
+    left: 240px;
+    width: calc(100% - 240px);
+    height: 50px;
+    background-color: var(--sidebar-color);
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    color: var(--text-color);
+    z-index: 1000;
+  }
+  
+  #toggleSidebar {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .sidebar {
+    width: 240px;
+    background-color: var(--sidebar-color);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 60px;
+    transition: width 0.3s;
+  }
+  
+  .sidebar.collapsed {
+    width: 60px;
+  }
+  
+  .sidebar h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .nav-links a {
+    color: var(--text-color);
+    display: block;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+  }
+  
+  .nav-links a:hover,
+  .nav-links a.active {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+  }
+  
+  /* Fix heading and main layout */
+.main-content {
+    margin-left: 240px; /* matches sidebar width */
+    padding: 4rem 2rem 2rem;
+    width: calc(100% - 240px); /* prevent overflow */
+    box-sizing: border-box;
+  }
+  
+  /* Logo/header section fix */
+  .sidebar h2 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin: 0 0 2rem 0;
+    padding: 0 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  /* Sidebar links fix */
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-left: 0;
+  }
+  
+  .nav-links a {
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    color: var(--text-color);
+    display: block;
+    text-decoration: none;
+  }
+  
+  /* Fix topbar not pushing down content */
+  body {
+    padding-top: 50px; /* equal to topbar height */
+  }
+  
+  /* Reduce heading size to prevent overflow */
+  .main-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    white-space: normal;
+  }
+  
+  .quote-subhead {
+    font-size: 1rem;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  
+  
+  .section-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .card, .chart-card {
+    background-color: var(--card-color);
+    color: var(--sidebar-color);
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px var(--shadow);
+    margin-bottom: 1rem;
+  }
+  
+  .chart-card canvas {
+    max-height: 250px; /* reduced chart size */
+  }
+  
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .training-list li {
+    background-color: var(--accent-color);
+    padding: 0.6rem;
+    margin: 0.3rem 0;
+    border-radius: 6px;
+    list-style: none;
+    color: var(--card-color);
+  }
+  
+  .training-list li a {
+    color: var(--card-color);
+    text-decoration: none;
+  }
+  
+  .calendar-section,
+  .notices,
+  .quick-links {
+    margin-top: 2rem;
+    background-color: var(--card-color);
+    padding: 1rem;
+    border-radius: 12px;
+    color: var(--dark-text); /* darker text */
+  }
+  
+  .calendar-section h4,
+  .notices h4,
+  .quick-links h4 {
+    color: var(--dark-text); /* ensure headings in these sections are also dark */
+  }
+  
+  .quick-links button {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border: none;
+    padding: 0.6rem 1rem;
+    margin-right: 0.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .quick-links button:hover {
+    opacity: 0.9;
+  }
+  
+  #calendar {
+    background-color: var(--card-color);
+    color: var(--dark-text);
+    padding: 1rem;
+    border-radius: 10px
+    margin-top: 1rem;
+  }
+  
