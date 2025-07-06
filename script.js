@@ -61,3 +61,41 @@ document.addEventListener('DOMContentLoaded', function () {
   });
   calendar.render();
 });
+
+  let userRole = null;
+
+  window.onload = () => {
+    document.getElementById('loginModal').style.display = 'flex';
+  };
+
+  function handleLogin() {
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value.trim();
+    const errorMsg = document.getElementById('loginError');
+
+    if (username === 'admin' && password === 'adminpassword') {
+      userRole = 'admin';
+      document.getElementById('loginModal').style.display = 'none';
+      enableAdminFeatures();
+    } else if (username === 'student' && password === 'studentpassword') {
+      userRole = 'student';
+      document.getElementById('loginModal').style.display = 'none';
+      disableAdminFeatures();
+    } else {
+      errorMsg.textContent = 'Invalid credentials. Try again.';
+    }
+  }
+
+  function enableAdminFeatures() {
+    // Admin can use everything
+  }
+
+  function disableAdminFeatures() {
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach(btn => {
+      btn.disabled = true;
+      btn.style.opacity = '0.5';
+      btn.title = 'Admin access required';
+    });
+  }
+
